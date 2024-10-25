@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node index.js"
+    "start": "node src/game.js"
   },
   "repository": {
     "type": "git",
@@ -16,5 +16,9 @@
   "bugs": {
     "url": "https://github.com/leod1/ProjetRPG/issues"
   },
-  "homepage": "https://github.com/leod1/ProjetRPG#readme"
+  "homepage": "https://github.com/leod1/ProjetRPG#readme",
+  "devDependencies": {
+    "jest": "^29.7.0",
+    "readline-sync": "^1.4.10"
+  }
 }

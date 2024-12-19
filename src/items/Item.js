@@ -1,9 +1,15 @@
+// Item.js
+
 class Item {
-    constructor(name, type, effects) {
+  constructor(name, type, effect) {
       this.name = name;
-      this.type = type; // 'consumable', 'weapon', 'armor'
-      this.effects = effects; // { healthRestore: 50 }, { strengthBoost: 10 }, etc.
-    }
+      this.type = type; // Exemple : "weapon", "potion"
+      this.effect = effect; // Exemple : { stat: "health", value: 20 }
   }
-  
-  module.exports = Item;
+
+  use(target) {
+      target.updateStats(this.effect.stat, this.effect.value);
+  }
+}
+
+module.exports = Item;

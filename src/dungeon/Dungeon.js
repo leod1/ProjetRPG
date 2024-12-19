@@ -1,73 +1,64 @@
-const Room = require('./Room');
-const Character = require('../character/Character');
+// Dungeon.js
+
+const Room = require("./Room");
 
 class Dungeon {
-  constructor(size_x, size_y, player) {
-    this.character = player;
-    this.size_x = size_x;
-    this.size_y = size_y;
-    this.grid = this.generateGrid(size_x, size_y);
-    this.currentRoom = [0, 0];
-    this.interaction = "";
-  }
+    constructor(size = 5) {
+        this.size = size;
+        this.grid = this.generateGrid();
+        this.currentRoom = { x: 0, y: 0 };
+        this.interaction = ""; // Interaction qui peut avoir lieu -> à rajouter plus tard apres refacto + new systeme de room et combat (combar, loot)
+    }
 
-  generateGrid(size_x, size_y) {
-    const grid = [];
-    for (let i = 0; i < size_x; i++) {
-      grid[i] = [];
-      for (let j = 0; j < size_y; j++) {
-        grid[i][j] = new Room(); 
+    generateGrid() {
+      const grid = [];
+      for (let x = 0; x < this.size; x++) {
+          grid[x] = [];
+          for (let y = 0; y < this.size; y++) {
+              const randomNum = Math.random();
+              let contentType = "empty";
+              if (randomNum < 0.2) contentType = "treasure";
+              else if (randomNum < 0.5) contentType = "monster";
+  
+              grid[x][y] = new Room(x, y, contentType); // Passe le type à la salle
+          }
       }
+      return grid;
     }
-    return grid;
-  }
+  
 
-  movePlayer(direction) {
-    let newRoom = [...this.currentRoom];
+    affichage() {
+      for (let j = this.grid[0].length - 1; j >= 0; j--) {
+          let row = '';
+          for (let i = 0; i < this.grid.length; i++) {
+              if (this.currentRoom.x === i && this.currentRoom.y === j) {
+                  row += '[P]';
+              } else if (this.grid[i][j].icone) {
+                  row += `[${this.grid[i][j].icone}]`;
+              } else {
+                  row += '[ ]';
+              }
+          }
+          console.log(row);
+      }
 
-    switch (direction) {
-      case 'up':
-        newRoom[1] += 1;
-        break;
-      case 'down':
-        newRoom[1] -= 1;
-        break;
-      case 'left':
-        newRoom[0] -= 1;
-        break;
-      case 'right':
-        newRoom[0] += 1;
-        break;
-      default:
-        throw new Error('Invalid direction.');
+      if (this.interaction !== "") {
+          console.log(this.interaction);
+          this.interaction = "";
+      }
+      console.log(`Position actuelle : (${this.currentRoom.x}, ${this.currentRoom.y})`);
     }
-    if (newRoom[0] >= 0 && newRoom[0] < this.size_x && newRoom[1] >= 0 && newRoom[1] < this.size_y) {
-      this.currentRoom = newRoom;
-    } else {
-      this.interaction = "You can't go there!";
-    }
-  }
 
-  affichage() {
-    for (let j = this.grid[0].length - 1; j >= 0; j--) { // Iterate rows from bottom to top
-      let row = '';
-      for (let i = 0; i < this.grid.length; i++) { // Iterate columns from left to right
-        if (this.currentRoom[0] === i && this.currentRoom[1] === j) {
-          row += '[P]'; // Display player in the current room
-        } else if (this.grid[i][j].icone) {
-          row += `[${this.grid[i][j].icone}]`; // Display room icon if available
-        } else {
-          row += '[ ]'; // Display empty room if no icon
+    getCurrentRoom() {
+        return this.grid[this.currentRoom.x][this.currentRoom.y];
+    }
+
+    moveToRoom(x, y) {
+        if (x < 0 || x >= this.size || y < 0 || y >= this.size) {
+            throw new Error("Impossible de sortir du donjon !");
         }
-      }
-      console.log(row);
+        this.currentRoom = { x, y };
     }
-    if (this.interaction !== "") {
-      console.log(this.interaction);
-      this.interaction = "";
-    }
-    console.log(this.currentRoom);
-  }
 }
 
 module.exports = Dungeon;

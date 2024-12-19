@@ -1,0 +1,258 @@
+{
+  "player": {
+    "name": "Elias",
+    "class": "warrior",
+    "stats": {
+      "health": 150,
+      "mana": 50,
+      "strength": 15,
+      "defense": 12
+    },
+    "inventory": [],
+    "position": {
+      "x": 1,
+      "y": 0
+    }
+  },
+  "dungeon": {
+    "size": 5,
+    "grid": [
+      [
+        {
+          "x": 0,
+          "y": 0,
+          "type": "empty",
+          "icon": " ",
+          "isExplored": false,
+          "content": null
+        },
+        {
+          "x": 0,
+          "y": 1,
+          "type": "monster",
+          "icon": "M",
+          "isExplored": false,
+          "content": {
+            "type": "monster"
+          }
+        },
+        {
+          "x": 0,
+          "y": 2,
+          "type": "monster",
+          "icon": "M",
+          "isExplored": false,
+          "content": {
+            "type": "monster"
+          }
+        },
+        {
+          "x": 0,
+          "y": 3,
+          "type": "treasure",
+          "icon": "T",
+          "isExplored": false,
+          "content": {
+            "type": "treasure"
+          }
+        },
+        {
+          "x": 0,
+          "y": 4,
+          "type": "empty",
+          "icon": " ",
+          "isExplored": false,
+          "content": null
+        }
+      ],
+      [
+        {
+          "x": 1,
+          "y": 0,
+          "type": "monster",
+          "icon": "M",
+          "isExplored": false,
+          "content": {
+            "type": "monster"
+          }
+        },
+        {
+          "x": 1,
+          "y": 1,
+          "type": "empty",
+          "icon": " ",
+          "isExplored": false,
+          "content": null
+        },
+        {
+          "x": 1,
+          "y": 2,
+          "type": "treasure",
+          "icon": "T",
+          "isExplored": false,
+          "content": {
+            "type": "treasure"
+          }
+        },
+        {
+          "x": 1,
+          "y": 3,
+          "type": "empty",
+          "icon": " ",
+          "isExplored": false,
+          "content": null
+        },
+        {
+          "x": 1,
+          "y": 4,
+          "type": "treasure",
+          "icon": "T",
+          "isExplored": false,
+          "content": {
+            "type": "treasure"
+          }
+        }
+      ],
+      [
+        {
+          "x": 2,
+          "y": 0,
+          "type": "empty",
+          "icon": " ",
+          "isExplored": false,
+          "content": null
+        },
+        {
+          "x": 2,
+          "y": 1,
+          "type": "monster",
+          "icon": "M",
+          "isExplored": false,
+          "content": {
+            "type": "monster"
+          }
+        },
+        {
+          "x": 2,
+          "y": 2,
+          "type": "empty",
+          "icon": " ",
+          "isExplored": false,
+          "content": null
+        },
+        {
+          "x": 2,
+          "y": 3,
+          "type": "empty",
+          "icon": " ",
+          "isExplored": false,
+          "content": null
+        },
+        {
+          "x": 2,
+          "y": 4,
+          "type": "monster",
+          "icon": "M",
+          "isExplored": false,
+          "content": {
+            "type": "monster"
+          }
+        }
+      ],
+      [
+        {
+          "x": 3,
+          "y": 0,
+          "type": "empty",
+          "icon": " ",
+          "isExplored": false,
+          "content": null
+        },
+        {
+          "x": 3,
+          "y": 1,
+          "type": "treasure",
+          "icon": "T",
+          "isExplored": false,
+          "content": {
+            "type": "treasure"
+          }
+        },
+        {
+          "x": 3,
+          "y": 2,
+          "type": "empty",
+          "icon": " ",
+          "isExplored": false,
+          "content": null
+        },
+        {
+          "x": 3,
+          "y": 3,
+          "type": "empty",
+          "icon": " ",
+          "isExplored": false,
+          "content": null
+        },
+        {
+          "x": 3,
+          "y": 4,
+          "type": "treasure",
+          "icon": "T",
+          "isExplored": false,
+          "content": {
+            "type": "treasure"
+          }
+        }
+      ],
+      [
+        {
+          "x": 4,
+          "y": 0,
+          "type": "empty",
+          "icon": " ",
+          "isExplored": false,
+          "content": null
+        },
+        {
+          "x": 4,
+          "y": 1,
+          "type": "monster",
+          "icon": "M",
+          "isExplored": false,
+          "content": {
+            "type": "monster"
+          }
+        },
+        {
+          "x": 4,
+          "y": 2,
+          "type": "treasure",
+          "icon": "T",
+          "isExplored": false,
+          "content": {
+            "type": "treasure"
+          }
+        },
+        {
+          "x": 4,
+          "y": 3,
+          "type": "monster",
+          "icon": "M",
+          "isExplored": false,
+          "content": {
+            "type": "monster"
+          }
+        },
+        {
+          "x": 4,
+          "y": 4,
+          "type": "empty",
+          "icon": " ",
+          "isExplored": false,
+          "content": null
+        }
+      ]
+    ]
+  }
+}

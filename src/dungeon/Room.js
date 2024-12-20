@@ -32,6 +32,18 @@ class Room {
     isEmpty() {
         return this.type === "empty";
     }
+
+    addMonster(monster) {
+        this.type = "monster";
+        this.icone = "M";
+        this.content = monster;
+    }
+
+    addTreasure(treasure) {
+        this.type = "treasure";
+        this.icone = "T";
+        this.content = treasure;
+    }
 }
 
 module.exports = Room;

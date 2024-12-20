@@ -1,4 +1,4 @@
-const Monster = require("./Monster");
+const Monster = require("../entities/Monster");
 const Treasure = require("./Treasure");
 
 class Room {

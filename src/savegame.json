@@ -1,12 +1,18 @@
 {
   "player": {
-    "name": "Leo",
+    "name": "Elias",
     "class": "mage",
     "stats": {
       "health": 90,
       "mana": 150,
-      "strength": 5,
-      "defense": 8
+      "strength": 4,
+      "intelligence": 15,
+      "defense": 5,
+      "magicResistance": 12,
+      "agility": 7,
+      "luck": 6,
+      "endurance": 5,
+      "spirit": 10
     },
     "inventory": [],
     "position": {
@@ -29,12 +35,10 @@
         {
           "x": 0,
           "y": 1,
-          "type": "monster",
-          "icon": "M",
+          "type": "empty",
+          "icon": " ",
           "isExplored": false,
-          "content": {
-            "type": "monster"
-          }
+          "content": null
         },
         {
           "x": 0,
@@ -47,11 +51,11 @@
         {
           "x": 0,
           "y": 3,
-          "type": "monster",
-          "icon": "M",
+          "type": "treasure",
+          "icon": "T",
           "isExplored": false,
           "content": {
-            "type": "monster"
+            "type": "treasure"
           }
         },
         {
@@ -95,20 +99,22 @@
         {
           "x": 1,
           "y": 3,
+          "type": "treasure",
+          "icon": "T",
+          "isExplored": false,
+          "content": {
+            "type": "treasure"
+          }
+        },
+        {
+          "x": 1,
+          "y": 4,
           "type": "monster",
           "icon": "M",
           "isExplored": false,
           "content": {
             "type": "monster"
           }
-        },
-        {
-          "x": 1,
-          "y": 4,
-          "type": "empty",
-          "icon": " ",
-          "isExplored": false,
-          "content": null
         }
       ],
       [
@@ -125,59 +131,61 @@
         {
           "x": 2,
           "y": 1,
-          "type": "monster",
-          "icon": "M",
-          "isExplored": false,
-          "content": {
-            "type": "monster"
-          }
-        },
-        {
-          "x": 2,
-          "y": 2,
-          "type": "empty",
-          "icon": " ",
-          "isExplored": false,
-          "content": null
-        },
-        {
-          "x": 2,
-          "y": 3,
-          "type": "monster",
-          "icon": "M",
-          "isExplored": false,
-          "content": {
-            "type": "monster"
-          }
-        },
-        {
-          "x": 2,
-          "y": 4,
           "type": "treasure",
           "icon": "T",
           "isExplored": false,
           "content": {
             "type": "treasure"
           }
+        },
+        {
+          "x": 2,
+          "y": 2,
+          "type": "monster",
+          "icon": "M",
+          "isExplored": false,
+          "content": {
+            "type": "monster"
+          }
+        },
+        {
+          "x": 2,
+          "y": 3,
+          "type": "monster",
+          "icon": "M",
+          "isExplored": false,
+          "content": {
+            "type": "monster"
+          }
+        },
+        {
+          "x": 2,
+          "y": 4,
+          "type": "empty",
+          "icon": " ",
+          "isExplored": false,
+          "content": null
         }
       ],
       [
         {
           "x": 3,
           "y": 0,
-          "type": "empty",
-          "icon": " ",
-          "isExplored": false,
-          "content": null
-        },
-        {
-          "x": 3,
-          "y": 1,
           "type": "monster",
           "icon": "M",
           "isExplored": false,
           "content": {
             "type": "monster"
+          }
+        },
+        {
+          "x": 3,
+          "y": 1,
+          "type": "treasure",
+          "icon": "T",
+          "isExplored": false,
+          "content": {
+            "type": "treasure"
           }
         },
         {
@@ -191,11 +199,11 @@
         {
           "x": 3,
           "y": 3,
-          "type": "monster",
-          "icon": "M",
+          "type": "treasure",
+          "icon": "T",
           "isExplored": false,
           "content": {
-            "type": "monster"
+            "type": "treasure"
           }
         },
         {
@@ -229,10 +237,12 @@
         {
           "x": 4,
           "y": 2,
-          "type": "empty",
-          "icon": " ",
+          "type": "monster",
+          "icon": "M",
           "isExplored": false,
-          "content": null
+          "content": {
+            "type": "monster"
+          }
         },
         {
           "x": 4,

@@ -1,8 +1,8 @@
 const readlineSync = require("readline-sync");
-const { Player } = require("../character/Character");
+const { Player } = require("../entities/Character");
 const Dungeon = require("../dungeon/Dungeon");
 const Move = require("../move/Move");
-const { loadGame } = require("./SaveManager");
+const { saveGame, loadGame } = require("./SaveManager");
 
 function initializeNewGame() {
     console.log("\n=== CRÉATION D'UN PERSONNAGE ===");
@@ -12,14 +12,7 @@ function initializeNewGame() {
         classType = readlineSync.question("Choisissez votre classe (warrior, mage, thief) : ").toLowerCase();
     }
 
-    // Initialisation des statistiques par classe
-    const classStats = {
-        warrior: { health: 150, mana: 50, strength: 15, defense: 12 },
-        mage: { health: 90, mana: 150, strength: 5, defense: 8 },
-        thief: { health: 120, mana: 70, strength: 10, defense: 10 },
-    };
-
-    const player = new Player(name, classStats[classType], classType);
+    const player = new Player(name, classType);
     const dungeon = new Dungeon(5);
     const moveHandler = new Move(player, dungeon);
 
@@ -27,18 +20,104 @@ function initializeNewGame() {
     return { player, dungeon, moveHandler };
 }
 
+function gameLoop(player, dungeon, moveHandler) {
+    console.log("\n=== DÉBUT DU TOUR ===");
+    let counter = 0;
+
+    while (true) {
+        // console.clear();
+
+        if (counter === 0) {
+            console.log("\n=== LEGENDE ===");
+            console.log("\nLégende des icônes :");
+            console.log("\n");
+            console.log("[ ] : Salle vide");
+            console.log("[P] : Joueur");
+            console.log("[M] : Monstre");
+            console.log("[T] : Trésor");
+            console.log("Appuyez sur Entrée pour continuer...");
+            readlineSync.question();
+        }
+    
+        // console.clear();
+        console.log("\n=== DONJON ===");
+        dungeon.affichage();
+    
+        console.log("\n=== ACTIONS ===");
+        console.log("1. Se déplacer (N, S, E, O)");
+        console.log("2. Consulter l'inventaire");
+        console.log("3. Voir les statistiques du personnage");
+        console.log("4. Quitter le jeu");
+    
+        const choice = readlineSync.question("Entrez votre choix : ").toUpperCase();
+    
+        switch (choice) {
+            case "N":
+            case "S":
+            case "E":
+            case "O":
+                try {
+                    moveHandler.execute(choice);
+                } catch (error) {
+                    console.log(error.message);
+                }
+                break;
+    
+            case "2":
+                console.log("\n=== INVENTAIRE ===");
+                if (player.inventory.length === 0) {
+                    console.log("Votre inventaire est vide.");
+                } else {
+                    console.log("Objets dans votre inventaire :");
+                    player.inventory.forEach((item, index) => {
+                        console.log(`${index + 1}. ${item.name}`);
+                    });
+                }
+                readlineSync.question("\nAppuyez sur Entrée pour continuer...");
+                break;
+    
+            case "3":
+                player.displayStats();
+                readlineSync.question("\nAppuyez sur Entrée pour continuer...");
+                break;
+            
+            case "4":
+                const saveChoice = readlineSync.question("\nVoulez-vous sauvegarder votre partie avant de quitter ? (O/N) : ").toUpperCase();
+                if (saveChoice === "O") {
+                    saveGame(player, dungeon);
+                }
+                console.log("Merci d'avoir joué ! À bientôt.");
+                process.exit(0);
+    
+            default:
+                console.log("Choix invalide. Veuillez réessayer.");
+                readlineSync.question("\nAppuyez sur Entrée pour continuer...");
+        }
+    
+        counter++;
+    }
+}
+
 function promptLoadGame() {
     console.log("\n=== CHARGEMENT D'UNE PARTIE ===");
-    const result = loadGame();
+
+    const result = loadGame(); // Charge les données depuis le fichier JSON
     if (result) {
-        const { player, dungeon } = result;
-        const moveHandler = new Move(player, dungeon);
-        console.log("\nPartie chargée avec succès !");
-        return { player, dungeon, moveHandler };
+        try {
+            const { player, dungeon } = result; // Récupérer directement le joueur et le donjon
+
+            // Recréation du gestionnaire de déplacements
+            const moveHandler = new Move(player, dungeon);
+
+            return { player, dungeon, moveHandler };
+        } catch (error) {
+            console.error("Erreur lors du chargement de la partie :", error.message);
+            return null;
+        }
     } else {
-        console.log("\nAucune sauvegarde trouvée.");
         return null;
     }
 }
 
-module.exports = { initializeNewGame, promptLoadGame };
+
+module.exports = { initializeNewGame, promptLoadGame, gameLoop };

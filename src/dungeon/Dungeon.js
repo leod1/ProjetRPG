@@ -1,4 +1,5 @@
 // Dungeon.js
+// Génération comm suit : donjon de taille "size", un seul donjon, chaque case est une room. Sera modifié plus tard pour avoir un donjon avec plusieurs étages.
 
 const Room = require("./Room");
 
@@ -7,7 +8,7 @@ class Dungeon {
         this.size = size;
         this.grid = this.generateGrid();
         this.currentRoom = { x: 0, y: 0 };
-        this.interaction = ""; // Interaction qui peut avoir lieu -> à rajouter plus tard apres refacto + new systeme de room et combat (combar, loot)
+        this.interaction = ""; // Interaction qui peut avoir lieu -> à rajouter plus tard apres refacto + new systeme de room et interraction (combat, loot)
     }
 
     generateGrid() {
@@ -25,7 +26,6 @@ class Dungeon {
       }
       return grid;
     }
-  
 
     affichage() {
       for (let j = this.grid[0].length - 1; j >= 0; j--) {

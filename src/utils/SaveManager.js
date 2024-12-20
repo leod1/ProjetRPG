@@ -1,8 +1,8 @@
 const fs = require("fs");
-const Player = require("../character/Character").Player;
+const Player = require("../entities/Character").Player;
 const Dungeon = require("../dungeon/Dungeon");
 const Room = require("../dungeon/Room");
-const Monster = require("../dungeon/Monster");
+const Monster = require("../entities/Monster");
 const Treasure = require("../dungeon/Treasure");
 
 const saveGame = (player, dungeon, filePath = "savegame.json") => {
@@ -12,7 +12,7 @@ const saveGame = (player, dungeon, filePath = "savegame.json") => {
             class: player.characterClass,
             stats: player.stats,
             inventory: player.inventory,
-            position: dungeon.currentRoom, // Position actuelle du joueur
+            position: { x: player.position.x, y: player.position.y }, // Position actuelle du joueur
         },
         dungeon: {
             size: dungeon.size,
@@ -21,7 +21,7 @@ const saveGame = (player, dungeon, filePath = "savegame.json") => {
                     x: room.x,
                     y: room.y,
                     type: room.type,
-                    icon: room.icone,
+                    icon: room.icon,
                     isExplored: room.isExplored,
                     content: room.content ? { type: room.type } : null,
                 }))
@@ -41,17 +41,22 @@ const loadGame = (filePath = "savegame.json") => {
 
     const data = JSON.parse(fs.readFileSync(filePath, "utf-8"));
 
-    // Restaurer le joueur
+    const validClasses = ["warrior", "mage", "thief"];
+    const playerClass = validClasses.includes(data.player.class)
+        ? data.player.class
+        : "warrior"; // Classe par défaut si la sauvegarde est corrompue
+
     const player = new Player(
         data.player.name,
-        data.player.stats,
-        data.player.class
+        data.player.class,
+        data.player.stats
     );
-    player.inventory = data.player.inventory;
+
+    player.position = data.player.position; // Restauration de la position
+    player.inventory = data.player.inventory; // Restauration de l'inventaire
 
     // Restaurer le donjon
     const dungeon = new Dungeon(data.dungeon.size);
-    dungeon.currentRoom = data.player.position;
     dungeon.grid = data.dungeon.grid.map(row =>
         row.map(roomData => {
             const room = new Room(roomData.x, roomData.y, roomData.type);
@@ -65,6 +70,10 @@ const loadGame = (filePath = "savegame.json") => {
             return room;
         })
     );
+
+    // Mettre à jour la salle actuelle en fonction de la position du joueur
+    const { x, y } = player.position;
+    dungeon.currentRoom = dungeon.grid[x][y];
 
     console.log("Partie chargée avec succès !");
     return { player, dungeon };

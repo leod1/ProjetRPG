@@ -27,11 +27,9 @@ class Move {
               throw new Error("Direction invalide !");
       }
 
-      // Vérifie les limites et les murs
-      const targetRoom = this.dungeon.grid[newX]?.[newY];
-      if (!targetRoom) {
-          console.log("Vous ne pouvez pas aller plus loin !");
-          return;
+      // Ajouter vérif si on sort des limites du donjon
+      if(newX < 0 || newX >= this.dungeon.size || newY < 0 || newY >= this.dungeon.size) {
+          throw new Error("Impossible de sortir du donjon !");
       }
 
       this.dungeon.moveToRoom(newX, newY);

@@ -1,63 +1,43 @@
 // Dungeon.js
-// Génération comm suit : donjon de taille "size", un seul donjon, chaque case est une room. Sera modifié plus tard pour avoir un donjon avec plusieurs étages.
-
-const Room = require("./Room");
+const DungeonGenerator = require('./DungeonGenerator');
+const DungeonRenderer = require('./DungeonRenderer');
 
 class Dungeon {
-    constructor(size = 5) {
+    constructor(numFloors, size) {
+        this.numFloors = numFloors;
         this.size = size;
-        this.grid = this.generateGrid();
+        this.generator = new DungeonGenerator(numFloors, size);
+        this.floors = this.generator.generateFloors(); 
+        this.currentFloor = 0;
         this.currentRoom = { x: 0, y: 0 };
-        this.interaction = ""; // Interaction qui peut avoir lieu -> à rajouter plus tard apres refacto + new systeme de room et interraction (combat, loot)
-    }
-
-    generateGrid() {
-      const grid = [];
-      for (let x = 0; x < this.size; x++) {
-          grid[x] = [];
-          for (let y = 0; y < this.size; y++) {
-              const randomNum = Math.random();
-              let contentType = "empty";
-              if (randomNum < 0.2) contentType = "treasure";
-              else if (randomNum < 0.5) contentType = "monster";
-  
-              grid[x][y] = new Room(x, y, contentType); // Passe le type à la salle
-          }
-      }
-      return grid;
+        this.interaction = "";
     }
 
     affichage() {
-      for (let j = this.grid[0].length - 1; j >= 0; j--) {
-          let row = '';
-          for (let i = 0; i < this.grid.length; i++) {
-              if (this.currentRoom.x === i && this.currentRoom.y === j) {
-                  row += '[P]';
-              } else if (this.grid[i][j].icone) {
-                  row += `[${this.grid[i][j].icone}]`;
-              } else {
-                  row += '[ ]';
-              }
-          }
-          console.log(row);
-      }
-
-      if (this.interaction !== "") {
-          console.log(this.interaction);
-          this.interaction = "";
-      }
-      console.log(`Position actuelle : (${this.currentRoom.x}, ${this.currentRoom.y})`);
+        DungeonRenderer.render(this);
     }
 
     getCurrentRoom() {
-        return this.grid[this.currentRoom.x][this.currentRoom.y];
+        return this.floors[this.currentFloor][this.currentRoom.x][this.currentRoom.y];
     }
 
-    moveToRoom(x, y) {
-        if (x < 0 || x >= this.size || y < 0 || y >= this.size) {
-            throw new Error("Impossible de sortir du donjon !");
+    moveToRoom(floor, x, y) {
+        if (floor < 0 || floor >= this.numFloors) {
+            throw new Error("Il n'y a pas d'autre étage dans cette direction !");
         }
+
+        if (x < 0 || x >= this.size || y < 0 || y >= this.size) {
+            throw new Error("Impossible de sortir des limites de ce niveau !");
+        }
+
+        this.currentFloor = floor;
         this.currentRoom = { x, y };
+    }
+
+    getRoomType(floor, x, y) {
+        if (floor < 0 || floor >= this.numFloors) return null;
+        if (x < 0 || x >= this.size || y < 0 || y >= this.size) return null;
+        return this.floors[floor][x][y].type;
     }
 }
 

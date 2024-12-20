@@ -22,6 +22,7 @@ if (loadChoice === "O") {
     }
 }
 
+// Initialiser une nouvelle partie si aucune sauvegarde n'a été chargée
 if (!player) {
     const result = initializeNewGame();
     player = result.player;

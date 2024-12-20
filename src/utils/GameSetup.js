@@ -1,6 +1,8 @@
+// GameSetup.js
 const readlineSync = require("readline-sync");
-const { Player } = require("../entities/Character");
+const Player = require("../entities/Player");
 const Dungeon = require("../dungeon/Dungeon");
+const DungeonRenderer = require("../dungeon/DungeonRenderer");
 const Move = require("../move/Move");
 const { saveGame, loadGame } = require("./SaveManager");
 
@@ -13,7 +15,7 @@ function initializeNewGame() {
     }
 
     const player = new Player(name, classType);
-    const dungeon = new Dungeon(5);
+    const dungeon = new Dungeon(5, 5);
     const moveHandler = new Move(player, dungeon);
 
     console.log("\nPersonnage créé avec succès !");
@@ -21,11 +23,10 @@ function initializeNewGame() {
 }
 
 function gameLoop(player, dungeon, moveHandler) {
-    console.log("\n=== DÉBUT DU TOUR ===");
     let counter = 0;
 
     while (true) {
-        // console.clear();
+        console.clear();
 
         if (counter === 0) {
             console.log("\n=== LEGENDE ===");
@@ -35,14 +36,19 @@ function gameLoop(player, dungeon, moveHandler) {
             console.log("[P] : Joueur");
             console.log("[M] : Monstre");
             console.log("[T] : Trésor");
+            console.log("[U] : Escalier montant. Une fois arrivé sur la case, il suffit de se déplacer une fois de plus vers le Nord pour accéder à la suite.");
+            console.log("[D] : Escalier descendant. Même principe que l'escalier montant, mais en se déplaçant vers le Sud.");
             console.log("Appuyez sur Entrée pour continuer...");
             readlineSync.question();
         }
-    
-        // console.clear();
+        
+        console.clear();
+
+        console.log("\n=== DÉBUT DU TOUR ===");
         console.log("\n=== DONJON ===");
-        dungeon.affichage();
-    
+        // Appel à DungeonRenderer pour afficher l'état du donjon
+        DungeonRenderer.render(dungeon);
+
         console.log("\n=== ACTIONS ===");
         console.log("1. Se déplacer (N, S, E, O)");
         console.log("2. Consulter l'inventaire");
@@ -104,7 +110,7 @@ function promptLoadGame() {
     const result = loadGame(); // Charge les données depuis le fichier JSON
     if (result) {
         try {
-            const { player, dungeon } = result; // Récupérer directement le joueur et le donjon
+            const { player, dungeon } = result;
 
             // Recréation du gestionnaire de déplacements
             const moveHandler = new Move(player, dungeon);
@@ -118,6 +124,5 @@ function promptLoadGame() {
         return null;
     }
 }
-
 
 module.exports = { initializeNewGame, promptLoadGame, gameLoop };

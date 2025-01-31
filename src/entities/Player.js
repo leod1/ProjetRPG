@@ -53,6 +53,22 @@ class Player extends Character {
             console.log(`${stat} : ${statsObj[stat]}`);
         }
     }
+
+    inventoryLength() {
+        return this.inventory.length
+    }
+
+    displayInventory() {
+        console.log("\n=== INVENTAIRE ===");
+        if (this.inventory.length === 0) {
+            console.log("Votre inventaire est vide.");
+        } else {
+            console.log("Objets dans votre inventaire :");
+            this.inventory.forEach((item, index) => {
+                console.log(`${index + 1}. ${item.name}`);
+            });
+        }
+    }
     
 }
 

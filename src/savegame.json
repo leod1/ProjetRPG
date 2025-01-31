@@ -1,0 +1,965 @@
+{
+  "player": {
+    "name": "junevn",
+    "class": "thief",
+    "stats": {
+      "health": 110,
+      "mana": 70,
+      "strength": 10,
+      "intelligence": 7,
+      "defense": 8,
+      "magicResist": 7,
+      "agility": 15,
+      "luck": 12,
+      "endurance": 7,
+      "spirit": 6
+    },
+    "inventory": [],
+    "position": {
+      "floor": 0,
+      "x": 0,
+      "y": 0
+    }
+  },
+  "dungeon": {
+    "numFloors": 5,
+    "size": 5,
+    "floors": [
+      [
+        [
+          {
+            "x": 0,
+            "y": 0,
+            "type": "treasure",
+            "icon": "T",
+            "content": null
+          },
+          {
+            "x": 0,
+            "y": 1,
+            "type": "empty",
+            "icon": " ",
+            "content": null
+          },
+          {
+            "x": 0,
+            "y": 2,
+            "type": "empty",
+            "icon": " ",
+            "content": null
+          },
+          {
+            "x": 0,
+            "y": 3,
+            "type": "monster",
+            "icon": "M",
+            "content": null
+          },
+          {
+            "x": 0,
+            "y": 4,
+            "type": "monster",
+            "icon": "M",
+            "content": null
+          }
+        ],
+        [
+          {
+            "x": 1,
+            "y": 0,
+            "type": "empty",
+            "icon": " ",
+            "content": null
+          },
+          {
+            "x": 1,
+            "y": 1,
+            "type": "empty",
+            "icon": " ",
+            "content": null
+          },
+          {
+            "x": 1,
+            "y": 2,
+            "type": "monster",
+            "icon": "M",
+            "content": null
+          },
+          {
+            "x": 1,
+            "y": 3,
+            "type": "empty",
+            "icon": " ",
+            "content": null
+          },
+          {
+            "x": 1,
+            "y": 4,
+            "type": "monster",
+            "icon": "M",
+            "content": null
+          }
+        ],
+        [
+          {
+            "x": 2,
+            "y": 0,
+            "type": "empty",
+            "icon": " ",
+            "content": null
+          },
+          {
+            "x": 2,
+            "y": 1,
+            "type": "monster",
+            "icon": "M",
+            "content": null
+          },
+          {
+            "x": 2,
+            "y": 2,
+            "type": "empty",
+            "icon": " ",
+            "content": null
+          },
+          {
+            "x": 2,
+            "y": 3,
+            "type": "treasure",
+            "icon": "T",
+            "content": null
+          },
+          {
+            "x": 2,
+            "y": 4,
+            "type": "entranceUp",
+            "icon": "U",
+            "content": null
+          }
+        ],
+        [
+          {
+            "x": 3,
+            "y": 0,
+            "type": "treasure",
+            "icon": "T",
+            "content": null
+          },
+          {
+            "x": 3,
+            "y": 1,
+            "type": "empty",
+            "icon": " ",
+            "content": null
+          },
+          {
+            "x": 3,
+            "y": 2,
+            "type": "monster",
+            "icon": "M",
+            "content": null
+          },
+          {
+            "x": 3,
+            "y": 3,
+            "type": "empty",
+            "icon": " ",
+            "content": null
+          },
+          {
+            "x": 3,
+            "y": 4,
+            "type": "empty",
+            "icon": " ",
+            "content": null
+          }
+        ],
+        [
+          {
+            "x": 4,
+            "y": 0,
+            "type": "monster",
+            "icon": "M",
+            "content": null
+          },
+          {
+            "x": 4,
+            "y": 1,
+            "type": "monster",
+            "icon": "M",
+            "content": null
+          },
+          {
+            "x": 4,
+            "y": 2,
+            "type": "empty",
+            "icon": " ",
+            "content": null
+          },
+          {
+            "x": 4,
+            "y": 3,
+            "type": "empty",
+            "icon": " ",
+            "content": null
+          },
+          {
+            "x": 4,
+            "y": 4,
+            "type": "empty",
+            "icon": " ",
+            "content": null
+          }
+        ]
+      ],
+      [
+        [
+          {
+            "x": 0,
+            "y": 0,
+            "type": "treasure",
+            "icon": "T",
+            "content": null
+          },
+          {
+            "x": 0,
+            "y": 1,
+            "type": "empty",
+            "icon": " ",
+            "content": null
+          },
+          {
+            "x": 0,
+            "y": 2,
+            "type": "empty",
+            "icon": " ",
+            "content": null
+          },
+          {
+            "x": 0,
+            "y": 3,
+            "type": "empty",
+            "icon": " ",
+            "content": null
+          },
+          {
+            "x": 0,
+            "y": 4,
+            "type": "empty",
+            "icon": " ",
+            "content": null
+          }
+        ],
+        [
+          {
+            "x": 1,
+            "y": 0,
+            "type": "empty",
+            "icon": " ",
+            "content": null
+          },
+          {
+            "x": 1,
+            "y": 1,
+            "type": "empty",
+            "icon": " ",
+            "content": null
+          },
+          {
+            "x": 1,
+            "y": 2,
+            "type": "treasure",
+            "icon": "T",
+            "content": null
+          },
+          {
+            "x": 1,
+            "y": 3,
+            "type": "empty",
+            "icon": " ",
+            "content": null
+          },
+          {
+            "x": 1,
+            "y": 4,
+            "type": "treasure",
+            "icon": "T",
+            "content": null
+          }
+        ],
+        [
+          {
+            "x": 2,
+            "y": 0,
+            "type": "entranceDown",
+            "icon": "D",
+            "content": null
+          },
+          {
+            "x": 2,
+            "y": 1,
+            "type": "monster",
+            "icon": "M",
+            "content": null
+          },
+          {
+            "x": 2,
+            "y": 2,
+            "type": "empty",
+            "icon": " ",
+            "content": null
+          },
+          {
+            "x": 2,
+            "y": 3,
+            "type": "empty",
+            "icon": " ",
+            "content": null
+          },
+          {
+            "x": 2,
+            "y": 4,
+            "type": "entranceUp",
+            "icon": "U",
+            "content": null
+          }
+        ],
+        [
+          {
+            "x": 3,
+            "y": 0,
+            "type": "treasure",
+            "icon": "T",
+            "content": null
+          },
+          {
+            "x": 3,
+            "y": 1,
+            "type": "empty",
+            "icon": " ",
+            "content": null
+          },
+          {
+            "x": 3,
+            "y": 2,
+            "type": "monster",
+            "icon": "M",
+            "content": null
+          },
+          {
+            "x": 3,
+            "y": 3,
+            "type": "empty",
+            "icon": " ",
+            "content": null
+          },
+          {
+            "x": 3,
+            "y": 4,
+            "type": "empty",
+            "icon": " ",
+            "content": null
+          }
+        ],
+        [
+          {
+            "x": 4,
+            "y": 0,
+            "type": "treasure",
+            "icon": "T",
+            "content": null
+          },
+          {
+            "x": 4,
+            "y": 1,
+            "type": "empty",
+            "icon": " ",
+            "content": null
+          },
+          {
+            "x": 4,
+            "y": 2,
+            "type": "empty",
+            "icon": " ",
+            "content": null
+          },
+          {
+            "x": 4,
+            "y": 3,
+            "type": "empty",
+            "icon": " ",
+            "content": null
+          },
+          {
+            "x": 4,
+            "y": 4,
+            "type": "monster",
+            "icon": "M",
+            "content": null
+          }
+        ]
+      ],
+      [
+        [
+          {
+            "x": 0,
+            "y": 0,
+            "type": "monster",
+            "icon": "M",
+            "content": null
+          },
+          {
+            "x": 0,
+            "y": 1,
+            "type": "monster",
+            "icon": "M",
+            "content": null
+          },
+          {
+            "x": 0,
+            "y": 2,
+            "type": "empty",
+            "icon": " ",
+            "content": null
+          },
+          {
+            "x": 0,
+            "y": 3,
+            "type": "empty",
+            "icon": " ",
+            "content": null
+          },
+          {
+            "x": 0,
+            "y": 4,
+            "type": "empty",
+            "icon": " ",
+            "content": null
+          }
+        ],
+        [
+          {
+            "x": 1,
+            "y": 0,
+            "type": "empty",
+            "icon": " ",
+            "content": null
+          },
+          {
+            "x": 1,
+            "y": 1,
+            "type": "treasure",
+            "icon": "T",
+            "content": null
+          },
+          {
+            "x": 1,
+            "y": 2,
+            "type": "empty",
+            "icon": " ",
+            "content": null
+          },
+          {
+            "x": 1,
+            "y": 3,
+            "type": "empty",
+            "icon": " ",
+            "content": null
+          },
+          {
+            "x": 1,
+            "y": 4,
+            "type": "empty",
+            "icon": " ",
+            "content": null
+          }
+        ],
+        [
+          {
+            "x": 2,
+            "y": 0,
+            "type": "entranceDown",
+            "icon": "D",
+            "content": null
+          },
+          {
+            "x": 2,
+            "y": 1,
+            "type": "empty",
+            "icon": " ",
+            "content": null
+          },
+          {
+            "x": 2,
+            "y": 2,
+            "type": "empty",
+            "icon": " ",
+            "content": null
+          },
+          {
+            "x": 2,
+            "y": 3,
+            "type": "monster",
+            "icon": "M",
+            "content": null
+          },
+          {
+            "x": 2,
+            "y": 4,
+            "type": "entranceUp",
+            "icon": "U",
+            "content": null
+          }
+        ],
+        [
+          {
+            "x": 3,
+            "y": 0,
+            "type": "empty",
+            "icon": " ",
+            "content": null
+          },
+          {
+            "x": 3,
+            "y": 1,
+            "type": "treasure",
+            "icon": "T",
+            "content": null
+          },
+          {
+            "x": 3,
+            "y": 2,
+            "type": "empty",
+            "icon": " ",
+            "content": null
+          },
+          {
+            "x": 3,
+            "y": 3,
+            "type": "monster",
+            "icon": "M",
+            "content": null
+          },
+          {
+            "x": 3,
+            "y": 4,
+            "type": "empty",
+            "icon": " ",
+            "content": null
+          }
+        ],
+        [
+          {
+            "x": 4,
+            "y": 0,
+            "type": "empty",
+            "icon": " ",
+            "content": null
+          },
+          {
+            "x": 4,
+            "y": 1,
+            "type": "empty",
+            "icon": " ",
+            "content": null
+          },
+          {
+            "x": 4,
+            "y": 2,
+            "type": "empty",
+            "icon": " ",
+            "content": null
+          },
+          {
+            "x": 4,
+            "y": 3,
+            "type": "monster",
+            "icon": "M",
+            "content": null
+          },
+          {
+            "x": 4,
+            "y": 4,
+            "type": "empty",
+            "icon": " ",
+            "content": null
+          }
+        ]
+      ],
+      [
+        [
+          {
+            "x": 0,
+            "y": 0,
+            "type": "treasure",
+            "icon": "T",
+            "content": null
+          },
+          {
+            "x": 0,
+            "y": 1,
+            "type": "empty",
+            "icon": " ",
+            "content": null
+          },
+          {
+            "x": 0,
+            "y": 2,
+            "type": "empty",
+            "icon": " ",
+            "content": null
+          },
+          {
+            "x": 0,
+            "y": 3,
+            "type": "empty",
+            "icon": " ",
+            "content": null
+          },
+          {
+            "x": 0,
+            "y": 4,
+            "type": "empty",
+            "icon": " ",
+            "content": null
+          }
+        ],
+        [
+          {
+            "x": 1,
+            "y": 0,
+            "type": "treasure",
+            "icon": "T",
+            "content": null
+          },
+          {
+            "x": 1,
+            "y": 1,
+            "type": "monster",
+            "icon": "M",
+            "content": null
+          },
+          {
+            "x": 1,
+            "y": 2,
+            "type": "treasure",
+            "icon": "T",
+            "content": null
+          },
+          {
+            "x": 1,
+            "y": 3,
+            "type": "empty",
+            "icon": " ",
+            "content": null
+          },
+          {
+            "x": 1,
+            "y": 4,
+            "type": "monster",
+            "icon": "M",
+            "content": null
+          }
+        ],
+        [
+          {
+            "x": 2,
+            "y": 0,
+            "type": "entranceDown",
+            "icon": "D",
+            "content": null
+          },
+          {
+            "x": 2,
+            "y": 1,
+            "type": "monster",
+            "icon": "M",
+            "content": null
+          },
+          {
+            "x": 2,
+            "y": 2,
+            "type": "empty",
+            "icon": " ",
+            "content": null
+          },
+          {
+            "x": 2,
+            "y": 3,
+            "type": "treasure",
+            "icon": "T",
+            "content": null
+          },
+          {
+            "x": 2,
+            "y": 4,
+            "type": "entranceUp",
+            "icon": "U",
+            "content": null
+          }
+        ],
+        [
+          {
+            "x": 3,
+            "y": 0,
+            "type": "empty",
+            "icon": " ",
+            "content": null
+          },
+          {
+            "x": 3,
+            "y": 1,
+            "type": "treasure",
+            "icon": "T",
+            "content": null
+          },
+          {
+            "x": 3,
+            "y": 2,
+            "type": "monster",
+            "icon": "M",
+            "content": null
+          },
+          {
+            "x": 3,
+            "y": 3,
+            "type": "empty",
+            "icon": " ",
+            "content": null
+          },
+          {
+            "x": 3,
+            "y": 4,
+            "type": "empty",
+            "icon": " ",
+            "content": null
+          }
+        ],
+        [
+          {
+            "x": 4,
+            "y": 0,
+            "type": "empty",
+            "icon": " ",
+            "content": null
+          },
+          {
+            "x": 4,
+            "y": 1,
+            "type": "monster",
+            "icon": "M",
+            "content": null
+          },
+          {
+            "x": 4,
+            "y": 2,
+            "type": "empty",
+            "icon": " ",
+            "content": null
+          },
+          {
+            "x": 4,
+            "y": 3,
+            "type": "treasure",
+            "icon": "T",
+            "content": null
+          },
+          {
+            "x": 4,
+            "y": 4,
+            "type": "empty",
+            "icon": " ",
+            "content": null
+          }
+        ]
+      ],
+      [
+        [
+          {
+            "x": 0,
+            "y": 0,
+            "type": "treasure",
+            "icon": "T",
+            "content": null
+          },
+          {
+            "x": 0,
+            "y": 1,
+            "type": "monster",
+            "icon": "M",
+            "content": null
+          },
+          {
+            "x": 0,
+            "y": 2,
+            "type": "empty",
+            "icon": " ",
+            "content": null
+          },
+          {
+            "x": 0,
+            "y": 3,
+            "type": "empty",
+            "icon": " ",
+            "content": null
+          },
+          {
+            "x": 0,
+            "y": 4,
+            "type": "treasure",
+            "icon": "T",
+            "content": null
+          }
+        ],
+        [
+          {
+            "x": 1,
+            "y": 0,
+            "type": "empty",
+            "icon": " ",
+            "content": null
+          },
+          {
+            "x": 1,
+            "y": 1,
+            "type": "empty",
+            "icon": " ",
+            "content": null
+          },
+          {
+            "x": 1,
+            "y": 2,
+            "type": "monster",
+            "icon": "M",
+            "content": null
+          },
+          {
+            "x": 1,
+            "y": 3,
+            "type": "empty",
+            "icon": " ",
+            "content": null
+          },
+          {
+            "x": 1,
+            "y": 4,
+            "type": "empty",
+            "icon": " ",
+            "content": null
+          }
+        ],
+        [
+          {
+            "x": 2,
+            "y": 0,
+            "type": "entranceDown",
+            "icon": "D",
+            "content": null
+          },
+          {
+            "x": 2,
+            "y": 1,
+            "type": "empty",
+            "icon": " ",
+            "content": null
+          },
+          {
+            "x": 2,
+            "y": 2,
+            "type": "monster",
+            "icon": "M",
+            "content": null
+          },
+          {
+            "x": 2,
+            "y": 3,
+            "type": "treasure",
+            "icon": "T",
+            "content": null
+          },
+          {
+            "x": 2,
+            "y": 4,
+            "type": "empty",
+            "icon": " ",
+            "content": null
+          }
+        ],
+        [
+          {
+            "x": 3,
+            "y": 0,
+            "type": "empty",
+            "icon": " ",
+            "content": null
+          },
+          {
+            "x": 3,
+            "y": 1,
+            "type": "empty",
+            "icon": " ",
+            "content": null
+          },
+          {
+            "x": 3,
+            "y": 2,
+            "type": "monster",
+            "icon": "M",
+            "content": null
+          },
+          {
+            "x": 3,
+            "y": 3,
+            "type": "empty",
+            "icon": " ",
+            "content": null
+          },
+          {
+            "x": 3,
+            "y": 4,
+            "type": "treasure",
+            "icon": "T",
+            "content": null
+          }
+        ],
+        [
+          {
+            "x": 4,
+            "y": 0,
+            "type": "treasure",
+            "icon": "T",
+            "content": null
+          },
+          {
+            "x": 4,
+            "y": 1,
+            "type": "empty",
+            "icon": " ",
+            "content": null
+          },
+          {
+            "x": 4,
+            "y": 2,
+            "type": "empty",
+            "icon": " ",
+            "content": null
+          },
+          {
+            "x": 4,
+            "y": 3,
+            "type": "monster",
+            "icon": "M",
+            "content": null
+          },
+          {
+            "x": 4,
+            "y": 4,
+            "type": "monster",
+            "icon": "M",
+            "content": null
+          }
+        ]
+      ]
+    ]
+  }
+}

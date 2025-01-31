@@ -70,15 +70,7 @@ function gameLoop(player, dungeon, moveHandler) {
                 break;
     
             case "2":
-                console.log("\n=== INVENTAIRE ===");
-                if (player.inventory.length === 0) {
-                    console.log("Votre inventaire est vide.");
-                } else {
-                    console.log("Objets dans votre inventaire :");
-                    player.inventory.forEach((item, index) => {
-                        console.log(`${index + 1}. ${item.name}`);
-                    });
-                }
+                player.displayInventory();
                 readlineSync.question("\nAppuyez sur Entrée pour continuer...");
                 break;
     

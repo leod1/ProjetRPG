@@ -1,3 +1,6 @@
+# GROUPE :
+## Léo Devaux et Elias Boez
+
 # SRP
 GameSetup.js fait trop de chose, notamment gameLoop :
 

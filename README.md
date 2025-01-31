@@ -1,3 +1,6 @@
+# GROUPE :
+## Léo Devaux et Elias Boez
+
 ## Projet RPG
 #### Objectif
 

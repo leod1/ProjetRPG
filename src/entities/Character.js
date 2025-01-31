@@ -1,4 +1,3 @@
-// Character.js
 const Stats = require('../stats/Stats');
 
 class Character {
@@ -16,7 +15,9 @@ class Character {
 
     getPosition() {
         return this.position;
+    
     }
 }
+
 
 module.exports = Character;

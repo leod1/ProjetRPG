@@ -6,6 +6,23 @@ class Move {
         this.dungeon = dungeon;
     }
   
+    moveBetweenFloors(direction, x, y, newFloor) {
+        const candidateFloor = direction === "N" ? newFloor + 1 : newFloor - 1;
+        const midX = x;
+        const edgeY = direction === "N" ? this.dungeon.size - 1 : 0;
+        const roomType = this.dungeon.getRoomType(newFloor, midX, edgeY);
+        const entranceType = direction === "N" ? "entranceUp" : "entranceDown";
+
+        if (roomType === entranceType) {
+            newFloor = candidateFloor;
+            y = direction === "N" ? 0 : this.dungeon.size - 1;
+        } else {
+            throw new Error(`Il n'y a pas d'escalier menant vers le ${direction === "N" ? "haut" : "bas"} ici !`);
+        }
+
+        return { newFloor, y };
+    }
+
     execute(direction) {
         let { x, y } = this.dungeon.currentRoom;
         let newX = x, newY = y;
@@ -15,39 +32,14 @@ class Move {
             case "N":
                 newY += 1;
                 if (newY >= this.dungeon.size) {
-                    // On essaie de monter d'un étage
-                    const candidateFloor = newFloor + 1;
-                    const midX = x; 
-                    const topY = this.dungeon.size - 1; 
-
-                    // Vérifier l'escalier (entranceUp) sur l'étage courant
-                    const topRoomType = this.dungeon.getRoomType(newFloor, midX, topY);
-                    if (topRoomType === "entranceUp") {
-                        // Passage à l'étage du dessus
-                        newFloor = candidateFloor;
-                        newY = 0;
-                    } else {
-                        throw new Error("Il n'y a pas d'escalier menant vers le haut ici !");
-                    }
+                    ({ newFloor, y: newY } = this.moveBetweenFloors(direction, x, y, newFloor));
                 }
                 break;
 
             case "S":
                 newY -= 1;
                 if (newY < 0) {
-                    // On essaie de descendre d'un étage
-                    const candidateFloor = newFloor - 1;
-                    const midX = x;
-
-                    // Vérifier l'escalier (entranceDown) sur l'étage courant
-                    const bottomRoomType = this.dungeon.getRoomType(newFloor, midX, 0);
-                    if (bottomRoomType === "entranceDown") {
-                        // Passage à l'étage du dessous
-                        newFloor = candidateFloor;
-                        newY = this.dungeon.size - 1;
-                    } else {
-                        throw new Error("Il n'y a pas d'escalier menant vers le bas ici !");
-                    }
+                    ({ newFloor, y: newY } = this.moveBetweenFloors(direction, x, y, newFloor));
                 }
                 break;
 
